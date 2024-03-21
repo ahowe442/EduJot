@@ -1,12 +1,12 @@
 # EduLeadHub
 
-## App Description:
+## App Description
 
 _**EduLeadHub** - Empowering Principals for Effective School Management_
 
 EduLeadHub is a web application designed to empower school principals with streamlined note-taking, actionable insights, and enhanced communication capabilities. Built to address the unique challenges faced by educational leaders, EduLeadHub serves as a comprehensive tool to facilitate efficient management of conversations, discipline referrals, classroom observations, and more.
 
-### Key Features:
+### Key Features
 
 **Effortless Note-Taking:**
 
