@@ -1,0 +1,26 @@
+{
+  "name": "edujot",
+  "version": "1.0.0",
+  "description": "EduJot is a web application designed to empower school principals with streamlined note-taking, actionable insights, and enhanced communication capabilities. ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahowe442/EduJot.git"
+  },
+  "keywords": [
+    "note-taking",
+    "communication"
+  ],
+  "author": "Abby Howe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ahowe442/EduJot/issues"
+  },
+  "homepage": "https://github.com/ahowe442/EduJot#readme",
+  "dependencies": {
+    "express": "^4.19.1"
+  }
+}
