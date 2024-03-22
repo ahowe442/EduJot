@@ -33,76 +33,8 @@ app.get('/', (req, res) => {
   res.json({ message: 'Welcome to the EduJot App.' });
 });
 
-// Get all ideas.
-app.get('/api/ideas', (req, res) => {
-  res.json({ success: true, data: ideas });
-});
-
-// Get an idea by id
-app.get('/api/ideas/:id', (req, res) => {
-  const idea = ideas.find(
-    (idea) => idea.id === +req.params.id
-  );
-
-  if (!idea) {
-    return res.status(404).json({
-      success: false,
-      error: 'Resource not found',
-    });
-  }
-
-  res.json({ success: true, data: idea });
-});
-
-// Get an idea by keyword
-app.get('/api/ideas/:keyword', (req, res) => {
-  const keyword = req.params.keyword.toLowerCase(); // Convert keyword to lowercase for case-insensitive comparison
-  const idea = ideas.find((idea) =>
-    idea.keywords.includes(keyword)
-  );
-
-  if (!idea) {
-    return res
-      .status(404)
-      .json({
-        success: false,
-        error: 'Resource not found',
-      });
-  }
-
-  res.json({ success: true, data: idea });
-});
-
-// Get ideas by search term
-app.get('/api/ideas/:searchTerm', (req, res) => {
-  const searchTerm = req.params.searchTerm.toLowerCase(); // Convert searchTerm to lowercase for case-insensitive comparison
-  const matchingIds = [];
-
-  ideas.forEach((idea) => {
-    // Check if any of the keys contain the searchTerm
-    if (
-      idea.text.toLowerCase().includes(searchTerm) ||
-      idea.tag.toLowerCase().includes(searchTerm) ||
-      idea.observeeOrStudent
-        .toLowerCase()
-        .includes(searchTerm) ||
-      idea.user.toLowerCase().includes(searchTerm)
-    ) {
-      matchingIds.push(idea.id); // Add the ID of the idea to the matchingIds array
-    }
-  });
-
-  if (matchingIds.length === 0) {
-    return res
-      .status(404)
-      .json({
-        success: false,
-        error: 'No matching ideas found',
-      });
-  }
-
-  res.json({ success: true, matchingIds: matchingIds });
-});
+const ideasRouter = require('./routes/ideas');
+app.use('/api/ideas', ideasRouter);
 
 app.listen(port, () =>
   console.log(`Server listening on port ${port}`)

@@ -4,7 +4,8 @@
   "description": "EduJot is a web application designed to empower school principals with streamlined note-taking, actionable insights, and enhanced communication capabilities. ",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,8 @@
   "homepage": "https://github.com/ahowe442/EduJot#readme",
   "dependencies": {
     "express": "^4.19.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
