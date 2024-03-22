@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const ideas = [
+const notes = [
   {
     id: 1,
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -28,44 +28,65 @@ const ideas = [
   },
 ];
 
-// Get all ideas.
+// Get all notes.
 router.get('/', (req, res) => {
-  res.json({ success: true, data: ideas });
+  res.json({ success: true, data: notes });
 });
 
 // Get an idea by id
 router.get('/:id', (req, res) => {
-  const idea = ideas.find(
-    (idea) => idea.id === +req.params.id
+  const note = notes.find(
+    (note) => note.id === +req.params.id
   );
   // if not found return a 404 error
-  if (!idea) {
+  if (!note) {
     return res.status(404).json({
       success: false,
       error: 'Resource not found',
     });
   }
   // share success message and return the idea
-  res.json({ success: true, data: idea });
+  res.json({ success: true, data: note });
 });
 
 // Update idea
 router.put('/:id', (req, res) => {
-  const idea = ideas.find(
-    (idea) => idea.id === +req.params.id
+  const note = notes.find(
+    (note) => note.id === +req.params.id
   );
-  if (!idea) {
+  if (!note) {
     res.status(404).json({
       success: false,
       error: 'Resource not found',
     });
   }
   //update or keep the original body, tag and person.
-  idea.text = req.body.text || idea.text;
-  idea.tag = req.body.tag || idea.tag;
-  idea.person = req.body.person || idea.person;
+  note.text = req.body.text || note.text;
+  note.tag = req.body.tag || note.tag;
+  note.person = req.body.person || note.person;
 
-  res.json({ success: true, data: idea });
+  res.json({ success: true, data: note });
+});
+
+// Delete Idea
+router.delete('/:id', (req, res) => {
+  // Find the idea
+  const note = notes.find(
+    (note) => note.id === +req.params.id
+  );
+  //If idea not found
+  if (!note) {
+    res.status(404).json({
+      success: false,
+      error: 'Resource not found',
+    });
+  }
+  //If found delete the idea
+  const index = notes.indexOf(note);
+  notes.splice(index, 1);
+
+  // Share success message and return an empty object
+  res.json({ success: true, data: {} });
 });
 
 module.exports = router;

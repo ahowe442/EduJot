@@ -11,10 +11,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //This is where it will get the ideas data
-const ideasRouter = require('./routes/ideas');
+const notesRouter = require('./routes/notes');
 
 // Middleware (pass in the endpoint, where you want it to go)
-app.use('/api/ideas', ideasRouter);
+app.use('/api/notes', notesRouter);
 
 app.listen(port, () =>
   console.log(`Server listening on port ${port}`)
