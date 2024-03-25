@@ -8,6 +8,10 @@ EduJot is a web application designed to empower school principals with streamlin
 
 ### Key Features
 
+**Documentation of Events and Conversations:**
+
+EduJot simplifies the process of capturing and organizing various types of conversations, including conversations with staff and students, discipline referrals, and classroom walk-through observations. Principals can easily input and categorize notes, ensuring all important interactions are recorded.
+
 **Effortless Note-Taking:**
 
 EduJot simplifies the process of capturing and organizing various types of notes, including conversations with staff and students, discipline referrals, and classroom walk-through observations. Principals can easily input and categorize notes, ensuring all important interactions are recorded.
